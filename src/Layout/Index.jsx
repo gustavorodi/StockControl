@@ -1,6 +1,7 @@
 import { useTheme } from '@chakra-ui/react';
 import { Box } from '@chakra-ui/react';
-import theme from '../theme';
+import Sidebar from '../components/Sidebar';
+import { useState } from 'react';
 
 function Layout({ children }) {
   const chakraTheme = useTheme();
@@ -12,6 +13,9 @@ function Layout({ children }) {
       h="100vh"
       display="flex"
     >
+      {/* Adicione o Sidebar aqui */}
+      <Sidebar />
+      {/* Conteúdo principal */}
       {children}
     </Box>
   );
