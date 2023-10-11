@@ -1,24 +1,22 @@
 // Sidebar.js
-import React, { useState } from 'react';
-import { Box, Text } from '@chakra-ui/react';
+import React, { useState, useCallback } from 'react';
+import { useTheme } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 
-function Sidebar({ isOpen, setIsSidebarOpen }) {
+function Sidebar({ isOpen }) {
+  const chakraTheme = useTheme();
+
   return (
     <Box
-      position="fixed"
       top="0"
-      left={isOpen ? '0' : '-250px'}
-      width="250px"
-      height="100%"
-      background="gray.800"
-      color="white"
+      bottom="0"
+      width="200px"
+      position="fixed"
+      background={chakraTheme.colors.brand.accent}
       transition="left 0.3s"
-    >
-      <Text fontSize="2xl" p="4">
-        Menu
-      </Text>
-      {/* Adicione os itens do menu aqui */}
-    </Box>
+      left={isOpen ? '0' : '-200px'}
+      transform={`translateX(${isOpen ? '0' : '-200px'})`} // Usa transform para mover o menu lateral
+    ></Box>
   );
 }
 
